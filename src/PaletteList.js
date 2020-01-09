@@ -38,7 +38,6 @@ class PaletteList extends Component {
     this.state = {};
   }
   goToPalette = id => {
-    console.log("hi");
     this.props.history.push(`/palette/${id}`);
   };
 
