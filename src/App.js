@@ -11,8 +11,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { palettes: seedColors };
+    console.log(generatePalette(seedColors[3]));
   }
-  // console.log(generatePalette(seedColors[3]));
+
   findPalette = id => {
     return this.state.palettes.find(palette => {
       return palette.id === id;

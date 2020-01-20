@@ -1,17 +1,17 @@
 import React from "react";
 import { SortableElement } from "react-sortable-hoc";
-import { makeStyles } from "@material-ui/styles";
+import { withStyles } from "@material-ui/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-const useStyles = makeStyles({
+const styles = {
   root: {
     width: "20%",
     height: "25%",
-    margin: " 0 auto",
+    margin: "0 auto",
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
-    marginBottom: "-6px",
+    marginBottom: "-5px",
     "&:hover svg": {
       color: "white",
       transform: "scale(1.5)"
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     left: "0px",
     bottom: "0px",
     padding: "10px",
-    color: "rgba(0,0,0,0.5)",
+    color: "rgba(0, 0, 0, 0.5)",
     letterSpacing: "1px",
     textTransform: "uppercase",
     fontSize: "12px",
@@ -33,19 +33,17 @@ const useStyles = makeStyles({
   deleteIcon: {
     transition: "all 0.3s ease-in-out"
   }
-});
+};
 
 const DraggableColorBox = SortableElement(props => {
-  const classes = useStyles();
-  const { handleClick, name, color } = props;
+  const { classes, handleClick, name, color } = props;
   return (
     <div className={classes.root} style={{ backgroundColor: color }}>
       <div className={classes.boxContent}>
-        <span>{name}</span>
+        <span> {name}</span>
         <DeleteIcon className={classes.deleteIcon} onClick={handleClick} />
       </div>
     </div>
   );
 });
-
-export default DraggableColorBox;
+export default withStyles(styles)(DraggableColorBox);
