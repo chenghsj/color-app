@@ -41,7 +41,6 @@ export default {
     marginTop: "-2px",
     marginBottom: "-3.5px"
   },
-  delete: {},
   deleteIcon: {
     color: "white",
     backgroundColor: "#ed3d30",
