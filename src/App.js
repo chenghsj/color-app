@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import { generatePalette } from "./colorHelpers";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Palette from "./Palette";
 import PaletteList from "./PaletteList";
 import SingleColorPalette from "./SingleColorPalette";
-import seedColors from "./seedColors";
-import NewPaletteForm from "./NewPaletteForm";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Page from "./Page";
+import NewPaletteForm from "./NewPaletteForm";
+import { generatePalette } from "./colorHelpers";
+import seedColors from "./seedColors";
 
 class App extends Component {
   constructor(props) {
     super(props);
     const savePalettes = JSON.parse(window.localStorage.getItem("palettes"));
     this.state = { palettes: savePalettes || seedColors };
-    console.log(generatePalette(seedColors[3]));
+    // console.log(generatePalette(seedColors[3]));
   }
 
   findPalette = id => {
